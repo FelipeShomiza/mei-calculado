@@ -6,6 +6,9 @@ import { Container } from "@/components/Container";
 import { FAQ } from "@/components/FAQ";
 import { InternalLinkCard } from "@/components/InternalLinkCard";
 
+const independenceNotice =
+  "O MEI Calculado é um site independente e não possui vínculo com o Governo Federal, Receita Federal, Portal do Empreendedor ou Sebrae.";
+
 const faqs = [
   {
     question: "O MEI Calculado é um site oficial?",
@@ -13,7 +16,7 @@ const faqs = [
   },
   {
     question: "Os dados digitados são salvos?",
-    answer: "Não. As calculadoras rodam no navegador e não usam banco de dados."
+    answer: "Não. As calculadoras rodam no navegador e não usam banco de dados, backend ou API."
   },
   {
     question: "Posso usar os resultados para tomar decisões fiscais?",
@@ -32,11 +35,14 @@ export default function Home() {
               Calculadoras gratuitas para MEI
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Calcule limite proporcional, projeção de faturamento, valor estimado do DAS e monte um relatório mensal simples, sem cadastro.
+              Calcule limite proporcional, projeção de faturamento, valor estimado do DAS e monte um relatório mensal simples, sem cadastro e sem
+              enviar seus dados para servidor.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/calculadora-limite-mei">Calcular limite MEI</Button>
-              <Button href="/calculadora-das-mei" variant="secondary">Ver DAS MEI</Button>
+              <Button href="/calculadora-das-mei" variant="secondary">
+                Ver DAS MEI
+              </Button>
             </div>
           </div>
           <div className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-green-50 p-6 shadow-sm">
@@ -60,24 +66,28 @@ export default function Home() {
         </section>
         <section className="mt-14 grid gap-6 md:grid-cols-2 md:items-start">
           <div>
-            <h2 className="text-2xl font-black text-slate-950">Por que usar o MEI Calculado?</h2>
+            <h2 className="text-2xl font-black text-slate-950">Para que serve o MEI Calculado?</h2>
             <p className="mt-3 leading-7 text-slate-600">
-              O objetivo é oferecer ferramentas rápidas, leves e fáceis de entender, com linguagem simples para quem cuida do próprio MEI e quer organizar números básicos.
+              O objetivo é oferecer ferramentas rápidas, leves e fáceis de entender para quem cuida do próprio MEI e precisa acompanhar números
+              básicos com mais clareza.
             </p>
           </div>
           <AlertBox type="warning">
-            <strong>Aviso importante:</strong> este site não substitui contador, Sebrae, Receita Federal ou canais oficiais. Os cálculos são informativos.
+            <strong>Aviso importante:</strong> {independenceNotice} Os cálculos são informativos e não substituem contador, Sebrae, Receita Federal ou
+            canais oficiais.
           </AlertBox>
         </section>
         <section className="mt-14">
           <h2 className="mb-5 text-2xl font-black text-slate-950">Guias úteis</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <InternalLinkCard href="/guias/qual-o-limite-do-mei" title="Qual o limite do MEI?" text="Entenda limite anual e proporcional." />
-            <InternalLinkCard href="/guias/quanto-o-mei-paga-por-mes" title="Quanto o MEI paga por mês?" text="Veja como pensar no DAS mensal." />
             <InternalLinkCard href="/guias/mei-abriu-no-meio-do-ano-quanto-pode-faturar" title="Abriu no meio do ano?" text="Calcule o limite proporcional." />
-            <InternalLinkCard href="/guias/mei-caminhoneiro-limite" title="MEI Caminhoneiro" text="Veja o limite específico para transportador." />
+            <InternalLinkCard href="/guias/mei-estourou-o-limite-o-que-fazer" title="Passou do limite?" text="Veja cuidados antes de decidir." />
             <InternalLinkCard href="/guias/mei-precisa-emitir-nota-fiscal" title="Nota fiscal" text="Entenda cuidados comuns sobre emissão." />
             <InternalLinkCard href="/guias/mei-pode-vender-online" title="Venda online" text="Organize o faturamento de vendas pela internet." />
+            <InternalLinkCard href="/guias/quanto-o-mei-paga-por-mes" title="Quanto o MEI paga por mês?" text="Veja como pensar no DAS mensal." />
+            <InternalLinkCard href="/guias/o-que-e-das-mei" title="O que é DAS MEI?" text="Entenda a guia mensal em linguagem simples." />
+            <InternalLinkCard href="/guias/mei-caminhoneiro-limite" title="MEI Caminhoneiro" text="Veja o limite específico para transportador." />
           </div>
         </section>
         <section className="mt-14">

@@ -13,10 +13,13 @@ export type GuidePageProps = {
   faq: FAQItem[];
 };
 
+const independenceNotice =
+  "O MEI Calculado é um site independente e não possui vínculo com o Governo Federal, Receita Federal, Portal do Empreendedor ou Sebrae.";
+
 export function GuidePage({ title, intro, sections, faq }: GuidePageProps) {
   return (
     <Container className="py-10">
-      <Breadcrumbs items={[{ href: "/guias/qual-o-limite-do-mei", label: "Guias" }]} />
+      <Breadcrumbs items={[{ href: "/guias", label: "Guias" }, { label: title }]} />
       <article className="prose-mei max-w-3xl">
         <h1 className="text-3xl font-black leading-tight text-slate-950">{title}</h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
@@ -28,14 +31,14 @@ export function GuidePage({ title, intro, sections, faq }: GuidePageProps) {
             ))}
           </ul>
         </div>
-        {sections.slice(0, 1).map((section) => (
+        {sections.slice(0, 2).map((section) => (
           <section key={section.heading}>
             <h2>{section.heading}</h2>
             <p>{section.text}</p>
           </section>
         ))}
         <AdPlaceholder />
-        {sections.slice(1).map((section) => (
+        {sections.slice(2).map((section) => (
           <section key={section.heading}>
             <h2>{section.heading}</h2>
             <p>{section.text}</p>
@@ -56,7 +59,7 @@ export function GuidePage({ title, intro, sections, faq }: GuidePageProps) {
         <SourceBox />
       </div>
       <div className="mt-8">
-        <AlertBox type="info">Conteúdo informativo. Consulte fontes oficiais, contador ou Sebrae para confirmar regras aplicáveis ao seu caso.</AlertBox>
+        <AlertBox type="info">{independenceNotice} Conteúdo informativo. Consulte fontes oficiais, contador ou Sebrae para confirmar regras aplicáveis ao seu caso.</AlertBox>
       </div>
     </Container>
   );

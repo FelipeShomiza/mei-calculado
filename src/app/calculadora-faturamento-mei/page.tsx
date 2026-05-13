@@ -11,6 +11,9 @@ import { calculateRevenueProjection } from "@/lib/meiCalculations";
 import { formatCurrency, parseCurrencyInput } from "@/utils/formatters";
 import { useMemo, useState } from "react";
 
+const independenceNotice =
+  "O MEI Calculado é um site independente e não possui vínculo com o Governo Federal, Receita Federal, Portal do Empreendedor ou Sebrae.";
+
 export default function FaturamentoMeiPage() {
   const [type, setType] = useState<MeiType>("comum");
   const [openingMonth, setOpeningMonth] = useState(1);
@@ -24,22 +27,61 @@ export default function FaturamentoMeiPage() {
 
   return (
     <Container className="py-10">
-      <Breadcrumbs items={[{ href: "/calculadora-faturamento-mei", label: "Calculadora de faturamento MEI" }]} />
+      <Breadcrumbs items={[{ label: "Calculadora de faturamento MEI" }]} />
       <h1 className="text-3xl font-black text-slate-950">Calculadora de Faturamento MEI</h1>
-      <p className="mt-3 max-w-3xl leading-7 text-slate-600">Simule o faturamento de agora até dezembro e veja se a projeção fica dentro do limite proporcional.</p>
+      <p className="mt-3 max-w-3xl leading-7 text-slate-600">
+        Simule o faturamento de agora até dezembro e veja se a projeção fica dentro do limite proporcional. Os valores digitados não são salvos nem
+        enviados para servidor.
+      </p>
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5">
           <div className="grid gap-4">
-            <label>Tipo de MEI<select value={type} onChange={(e) => setType(e.target.value as MeiType)}><option value="comum">MEI comum</option><option value="caminhoneiro">MEI Caminhoneiro</option></select></label>
-            <label>Mês de abertura<select value={openingMonth} onChange={(e) => setOpeningMonth(Number(e.target.value))}>{months.map((m, i) => <option key={m} value={i + 1}>{m}</option>)}</select></label>
-            <label>Mês atual<select value={currentMonth} onChange={(e) => setCurrentMonth(Number(e.target.value))}>{months.map((m, i) => <option key={m} value={i + 1}>{m}</option>)}</select></label>
-            <label>Faturamento já acumulado<input value={accumulated} onChange={(e) => setAccumulated(e.target.value)} placeholder="Ex.: 42.000,00" inputMode="decimal" /></label>
-            <label>Média esperada por mês, de agora até dezembro<input value={average} onChange={(e) => setAverage(e.target.value)} placeholder="Ex.: 6.000,00" inputMode="decimal" /></label>
+            <label>
+              Tipo de MEI
+              <select value={type} onChange={(e) => setType(e.target.value as MeiType)}>
+                <option value="comum">MEI comum</option>
+                <option value="caminhoneiro">MEI Caminhoneiro</option>
+              </select>
+            </label>
+            <label>
+              Mês de abertura
+              <select value={openingMonth} onChange={(e) => setOpeningMonth(Number(e.target.value))}>
+                {months.map((m, i) => (
+                  <option key={m} value={i + 1}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Mês atual
+              <select value={currentMonth} onChange={(e) => setCurrentMonth(Number(e.target.value))}>
+                {months.map((m, i) => (
+                  <option key={m} value={i + 1}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Faturamento já acumulado
+              <input value={accumulated} onChange={(e) => setAccumulated(e.target.value)} placeholder="Ex.: 42.000,00" inputMode="decimal" />
+              {!accumulated.trim() ? <span className="text-xs font-medium text-slate-500">Campo vazio será considerado como R$ 0,00.</span> : null}
+            </label>
+            <label>
+              Média esperada por mês, de agora até dezembro
+              <input value={average} onChange={(e) => setAverage(e.target.value)} placeholder="Ex.: 6.000,00" inputMode="decimal" />
+              {!average.trim() ? <span className="text-xs font-medium text-slate-500">Campo vazio será considerado como R$ 0,00.</span> : null}
+            </label>
           </div>
         </section>
         <section className="grid gap-4">
           <AlertBox type={result.status === "acima" ? "danger" : result.status === "perto" ? "warning" : "success"}>
-            {result.status === "acima" ? "A projeção ficou acima do limite. Confira com um contador ou fonte oficial." : result.status === "perto" ? "A projeção está perto do limite. Acompanhe o faturamento com atenção." : "A projeção está dentro do limite estimado."}
+            {result.status === "acima"
+              ? "A projeção ficou acima do limite. Confira com um contador ou fonte oficial."
+              : result.status === "perto"
+                ? "A projeção está perto do limite. Acompanhe o faturamento com atenção."
+                : "A projeção está dentro do limite estimado."}
           </AlertBox>
           <div className="grid gap-4 sm:grid-cols-2">
             <ResultCard title="Limite proporcional" value={formatCurrency(result.proportionalLimit)} tone="green" />
@@ -47,9 +89,17 @@ export default function FaturamentoMeiPage() {
             <ResultCard title={result.difference < 0 ? "Valor acima do limite" : "Diferença para o limite"} value={formatCurrency(Math.abs(result.difference))} tone={result.difference < 0 ? "slate" : "green"} />
             <ResultCard title="Média mensal possível" value={formatCurrency(result.allowedMonthlyRevenue)} />
           </div>
+          <AlertBox type="info">{independenceNotice} A projeção é apenas informativa e depende dos valores que você informar.</AlertBox>
           <AdPlaceholder />
         </section>
       </div>
+      <article className="prose-mei mt-10">
+        <h2>Quando a projeção ajuda</h2>
+        <p>
+          Esta calculadora é útil para perceber cedo se a média dos próximos meses pode levar o MEI para perto do limite. Ela não substitui o controle
+          real do faturamento, notas emitidas e recebimentos.
+        </p>
+      </article>
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         <InternalLinkCard href="/calculadora-limite-mei" title="Calcular limite exato" text="Confira meses ativos, percentual usado e saldo restante." />
         <InternalLinkCard href="/relatorio-mensal-mei" title="Organizar o mês" text="Monte um resumo mensal de receitas e despesas." />

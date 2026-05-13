@@ -6,7 +6,7 @@ const nav = [
   { href: "/calculadora-faturamento-mei", label: "Faturamento" },
   { href: "/calculadora-das-mei", label: "DAS" },
   { href: "/relatorio-mensal-mei", label: "Relatório" },
-  { href: "/guias/qual-o-limite-do-mei", label: "Guias" }
+  { href: "/guias", label: "Guias" }
 ];
 
 export function Header() {
