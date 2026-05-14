@@ -1,8 +1,21 @@
+import { canonicalUrl, defaultOpenGraphImage, seoKeywords } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
+const seo = seoKeywords.relatorio;
+
 export const metadata: Metadata = {
-  title: "Relatório Mensal MEI",
-  description: "Monte um relatório mensal MEI simples com receitas, despesas, saldo estimado, resumo para copiar e opção de impressão."
+  title: seo.title,
+  description: seo.description,
+  keywords: [seo.primaryKeyword, ...seo.secondaryKeywords],
+  alternates: {
+    canonical: canonicalUrl(seo.path)
+  },
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    url: canonicalUrl(seo.path),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

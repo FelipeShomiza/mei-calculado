@@ -13,9 +13,13 @@ const truckerMonthlyLimit = currencyFormatter.format(meiConfig.trucker.monthlyLi
 
 export const guides: Record<string, GuidePageProps & { description: string }> = {
   "qual-o-limite-do-mei": {
-    title: "Qual o limite do MEI?",
+    title: "Qual o limite do MEI em 2026?",
     description: "Entenda o limite anual do MEI, o limite proporcional e os cuidados antes de tomar decisões.",
     intro: "O limite do MEI depende do tipo de MEI, do tempo de atividade no ano e do faturamento real da empresa.",
+    relatedLinks: [
+      { href: "/calculadora-limite-mei", label: "a calculadora limite MEI" },
+      { href: "/guias/mei-abriu-no-meio-do-ano-quanto-pode-faturar", label: "o guia de limite proporcional" }
+    ],
     sections: [
       {
         heading: "Limite anual do MEI comum",
@@ -44,6 +48,10 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "MEI abriu no meio do ano: quanto pode faturar?",
     description: "Veja como calcular o limite proporcional quando o MEI abre depois de janeiro.",
     intro: "Quem abriu o MEI depois de janeiro precisa ter atenção ao limite proporcional do ano de abertura.",
+    relatedLinks: [
+      { href: "/calculadora-limite-mei", label: "a calculadora de limite proporcional MEI" },
+      { href: "/calculadora-faturamento-mei", label: "a calculadora de faturamento MEI" }
+    ],
     sections: [
       {
         heading: "Como contar os meses",
@@ -72,21 +80,29 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "MEI estourou o limite: o que fazer?",
     description: "Entenda cuidados importantes quando o faturamento do MEI passa do limite.",
     intro: "Passar do limite pode ter consequências fiscais e de enquadramento. O primeiro passo é organizar os números reais.",
+    relatedLinks: [
+      { href: "/calculadora-faturamento-mei", label: "a calculadora de faturamento MEI" },
+      { href: "/calculadora-limite-mei", label: "a calculadora limite MEI" }
+    ],
     sections: [
       {
         heading: "Levante o faturamento correto",
         text: "Separe vendas com nota, vendas sem nota, recebimentos por plataformas, maquininha, PIX e outros meios ligados à atividade. O objetivo é entender o faturamento bruto da empresa, não apenas o saldo da conta."
       },
       {
-        heading: "Veja quanto passou",
-        text: "A diferença entre ficar um pouco acima e ultrapassar bastante o limite pode mudar a orientação prática. Use a calculadora como apoio, mas confirme o enquadramento e possíveis efeitos com fonte oficial ou contador."
+        heading: "MEI passou de 81 mil",
+        text: "Quando o MEI comum passa de 81 mil no ano, é importante revisar quanto passou e se existe regra específica para o seu caso. Não use esse número de forma isolada: confirme valores atuais, limite proporcional e orientação oficial."
+      },
+      {
+        heading: "MEI ultrapassou limite em 20%",
+        text: "Buscas sobre MEI ultrapassou limite 20% costumam envolver desenquadramento e efeitos fiscais. O MEI Calculado não define enquadramento nem calcula imposto devido; use as ferramentas apenas para organizar o valor estimado antes de buscar orientação."
       },
       {
         heading: "Não deixe para o fim do ano",
         text: "Se você percebeu o problema antes de dezembro, acompanhe mês a mês. Esperar pode dificultar a organização de documentos, pagamento de obrigações e eventual mudança de regime."
       },
       {
-        heading: "Procure orientação",
+        heading: "Desenquadramento MEI e orientação",
         text: "Em caso de estouro de limite, é prudente falar com contador, Sebrae ou canais oficiais. Este site não calcula multa, desenquadramento ou imposto devido em situações específicas."
       }
     ],
@@ -100,6 +116,10 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "MEI precisa emitir nota fiscal?",
     description: "Guia simples sobre nota fiscal para MEI, vendas para empresas e controle de faturamento.",
     intro: "A obrigação de emitir nota pode depender de quem compra, da atividade exercida e de regras federais, estaduais ou municipais.",
+    relatedLinks: [
+      { href: "/relatorio-mensal-mei", label: "o relatório mensal MEI" },
+      { href: "/calculadora-limite-mei", label: "a calculadora limite MEI" }
+    ],
     sections: [
       {
         heading: "Venda para empresas",
@@ -128,6 +148,10 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "MEI pode vender online?",
     description: "Entenda cuidados básicos para MEI que vende pela internet, marketplace ou redes sociais.",
     intro: "O MEI pode atuar online quando a atividade é permitida e as obrigações da empresa são acompanhadas com cuidado.",
+    relatedLinks: [
+      { href: "/calculadora-faturamento-mei", label: "a calculadora de faturamento MEI" },
+      { href: "/relatorio-mensal-mei", label: "o controle mensal MEI" }
+    ],
     sections: [
       {
         heading: "Atividade permitida",
@@ -135,7 +159,7 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
       },
       {
         heading: "Marketplace, loja virtual e redes sociais",
-        text: "Vendas por marketplace, loja própria, WhatsApp, Instagram, aplicativos e outros canais entram no faturamento do negócio. Organize relatórios das plataformas e taxas cobradas."
+        text: "Vendas por marketplace, loja própria, WhatsApp, Instagram, aplicativos e outros canais entram no faturamento do negócio. Isso inclui vendas em plataformas como Shopee e Mercado Livre, quando ligadas à atividade do MEI."
       },
       {
         heading: "Faturamento bruto",
@@ -156,6 +180,10 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "Quanto o MEI paga por mês?",
     description: "Veja como estimar o pagamento mensal do MEI pelo DAS e por que conferir valores oficiais.",
     intro: "O pagamento mensal do MEI é feito pelo DAS, cujo valor varia por atividade e pode mudar com o tempo.",
+    relatedLinks: [
+      { href: "/calculadora-das-mei", label: "a calculadora DAS MEI" },
+      { href: "/guias/o-que-e-das-mei", label: "o guia sobre DAS MEI" }
+    ],
     sections: [
       {
         heading: "O que é pago no DAS",
@@ -184,6 +212,10 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     title: "O que é DAS MEI?",
     description: "Entenda o que é a guia DAS do MEI, para que serve e onde conferir antes de pagar.",
     intro: "DAS é a guia mensal usada pelo MEI para pagar suas principais obrigações em um documento único.",
+    relatedLinks: [
+      { href: "/calculadora-das-mei", label: "a calculadora DAS MEI 2026" },
+      { href: "/guias/quanto-o-mei-paga-por-mes", label: "o guia de valor mensal MEI" }
+    ],
     sections: [
       {
         heading: "Para que serve",
@@ -209,9 +241,13 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     ]
   },
   "mei-caminhoneiro-limite": {
-    title: "MEI Caminhoneiro: qual o limite?",
+    title: "MEI Caminhoneiro: limite 2026",
     description: "Veja o limite usado para MEI Caminhoneiro e Transportador Autônomo de Cargas.",
     intro: "O MEI Caminhoneiro tem limite diferente do MEI comum e precisa ser calculado separadamente.",
+    relatedLinks: [
+      { href: "/calculadora-limite-mei", label: "a calculadora limite MEI" },
+      { href: "/calculadora-faturamento-mei", label: "a projeção de faturamento MEI" }
+    ],
     sections: [
       {
         heading: "Limite anual do MEI Caminhoneiro",

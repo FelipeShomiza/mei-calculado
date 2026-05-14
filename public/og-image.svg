@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">MEI Calculado</title>
+  <desc id="desc">Imagem de compartilhamento do MEI Calculado: calculadoras gratuitas para MEI.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1060" height="490" rx="32" fill="#ffffff" stroke="#dbeafe" stroke-width="3"/>
+  <rect x="110" y="110" width="134" height="134" rx="30" fill="#1d4ed8"/>
+  <rect x="143" y="132" width="68" height="90" rx="14" fill="#ffffff"/>
+  <rect x="156" y="148" width="42" height="16" rx="5" fill="#dcfce7"/>
+  <path d="M154 189v-21h13.5l9.5 12.2 9.5-12.2H200v21h-11v-6.1l-7.8 9.7h-8.4l-7.8-9.7v6.1h-11Z" fill="#1d4ed8"/>
+  <circle cx="159" cy="207" r="5" fill="#16a34a"/>
+  <circle cx="177" cy="207" r="5" fill="#16a34a"/>
+  <circle cx="195" cy="207" r="5" fill="#16a34a"/>
+  <text x="285" y="167" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800">SITE INDEPENDENTE PARA MEI</text>
+  <text x="110" y="345" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="900">MEI Calculado</text>
+  <text x="112" y="424" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Calculadoras gratuitas para MEI</text>
+  <text x="112" y="486" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="28">Limite proporcional • Faturamento • DAS • Relatório mensal</text>
+  <rect x="870" y="120" width="190" height="300" rx="24" fill="#eff6ff" stroke="#bfdbfe" stroke-width="3"/>
+  <rect x="905" y="155" width="120" height="48" rx="12" fill="#ffffff"/>
+  <rect x="905" y="230" width="38" height="38" rx="10" fill="#16a34a"/>
+  <rect x="954" y="230" width="38" height="38" rx="10" fill="#1d4ed8"/>
+  <rect x="1003" y="230" width="38" height="38" rx="10" fill="#16a34a"/>
+  <rect x="905" y="285" width="38" height="38" rx="10" fill="#1d4ed8"/>
+  <rect x="954" y="285" width="38" height="38" rx="10" fill="#16a34a"/>
+  <rect x="1003" y="285" width="38" height="38" rx="10" fill="#1d4ed8"/>
+  <path d="M910 376h126" stroke="#16a34a" stroke-width="14" stroke-linecap="round"/>
+</svg>

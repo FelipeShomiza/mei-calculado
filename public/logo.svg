@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="52" viewBox="0 0 220 52" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">MEI Calculado</title>
+  <desc id="desc">Logo do MEI Calculado com ícone de calculadora e nome do site.</desc>
+  <rect x="1" y="1" width="50" height="50" rx="12" fill="#1d4ed8"/>
+  <rect x="13" y="9" width="26" height="34" rx="6" fill="#ffffff"/>
+  <rect x="18" y="15" width="16" height="6" rx="2" fill="#dcfce7"/>
+  <path d="M17 31v-7h4.2l4.8 5.9 4.8-5.9H35v7h-4.2v-1.9l-3.2 3.9h-3.2l-3.2-3.9V31H17Z" fill="#1d4ed8"/>
+  <circle cx="19" cy="37" r="2" fill="#16a34a"/>
+  <circle cx="26" cy="37" r="2" fill="#16a34a"/>
+  <circle cx="33" cy="37" r="2" fill="#16a34a"/>
+  <text x="64" y="24" fill="#172033" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">MEI</text>
+  <text x="64" y="42" fill="#1d4ed8" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Calculado</text>
+  <path d="M185 17h16c4.4 0 8 3.6 8 8v2c0 4.4-3.6 8-8 8h-16" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M195 12v28" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+</svg>

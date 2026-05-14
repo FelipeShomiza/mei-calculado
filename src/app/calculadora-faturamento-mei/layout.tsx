@@ -1,8 +1,21 @@
+import { canonicalUrl, defaultOpenGraphImage, seoKeywords } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
+const seo = seoKeywords.faturamento;
+
 export const metadata: Metadata = {
-  title: "Calculadora de Faturamento MEI",
-  description: "Projete o faturamento do MEI até dezembro e veja se a estimativa fica dentro, perto ou acima do limite proporcional."
+  title: seo.title,
+  description: seo.description,
+  keywords: [seo.primaryKeyword, ...seo.secondaryKeywords],
+  alternates: {
+    canonical: canonicalUrl(seo.path)
+  },
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    url: canonicalUrl(seo.path),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -13,8 +13,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
       <Container className="flex min-h-16 flex-col items-start justify-center gap-2 py-3 sm:flex-row sm:items-center sm:justify-between">
-        <Link href="/" className="shrink-0 text-lg font-black text-blue-800">
-          MEI Calculado
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="MEI Calculado - página inicial">
+          <img src="/logo.svg" alt="MEI Calculado" className="h-11 w-auto" width="220" height="52" />
         </Link>
         <nav className="flex w-full gap-2 overflow-x-auto pb-1 text-sm font-bold text-slate-700 sm:w-auto sm:gap-3 sm:pb-0 md:gap-5">
           {nav.map((item) => (

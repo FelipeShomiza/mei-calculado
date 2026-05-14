@@ -1,14 +1,22 @@
 import { SimplePage } from "@/components/SimplePage";
+import { canonicalUrl, defaultOpenGraphImage } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
-  description: "Entenda como o MEI Calculado trata dados digitados nas calculadoras, cookies, métricas e uso futuro de AdSense."
+  description: "Entenda como o MEI Calculado trata dados digitados nas calculadoras, cookies, métricas e uso futuro de AdSense.",
+  alternates: { canonical: canonicalUrl("/politica-de-privacidade") },
+  openGraph: {
+    title: "Política de Privacidade",
+    description: "Entenda como o MEI Calculado trata dados digitados nas calculadoras, cookies, métricas e uso futuro de AdSense.",
+    url: canonicalUrl("/politica-de-privacidade"),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function Page() {
   return (
-    <SimplePage title="Política de Privacidade">
+    <SimplePage title="Política de Privacidade" path="/politica-de-privacidade">
       <p>
         O MEI Calculado não salva os dados digitados nas calculadoras. Os cálculos rodam no navegador do usuário e o projeto não usa banco de dados,
         backend, área de login ou envio de informações para servidor próprio.

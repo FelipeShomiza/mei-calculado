@@ -1,17 +1,37 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { InternalLinkCard } from "@/components/InternalLinkCard";
+import { StructuredData, breadcrumbSchema } from "@/components/StructuredData";
 import { guides } from "@/data/guides";
+import { canonicalUrl, defaultOpenGraphImage, seoKeywords } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
+const seo = seoKeywords.guias;
+
 export const metadata: Metadata = {
-  title: "Guias para MEI",
-  description: "Veja guias simples sobre limite MEI, DAS, nota fiscal, venda online, MEI Caminhoneiro e organização mensal."
+  title: seo.title,
+  description: seo.description,
+  keywords: [seo.primaryKeyword, ...seo.secondaryKeywords],
+  alternates: {
+    canonical: canonicalUrl(seo.path)
+  },
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    url: canonicalUrl(seo.path),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function GuiasPage() {
   return (
     <Container className="py-10">
+      <StructuredData
+        data={breadcrumbSchema([
+          { path: "/", name: "Início" },
+          { path: "/guias", name: "Guias" }
+        ])}
+      />
       <Breadcrumbs items={[{ label: "Guias para MEI" }]} />
       <h1 className="text-3xl font-black text-slate-950">Guias para MEI</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">

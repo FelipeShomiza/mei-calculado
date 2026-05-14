@@ -1,14 +1,22 @@
 import { SimplePage } from "@/components/SimplePage";
+import { canonicalUrl, defaultOpenGraphImage } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contato do MEI Calculado",
-  description: "Fale com o MEI Calculado para enviar sugestões, correções ou avisos sobre as calculadoras e guias do site."
+  description: "Fale com o MEI Calculado para enviar sugestões, correções ou avisos sobre as calculadoras e guias do site.",
+  alternates: { canonical: canonicalUrl("/contato") },
+  openGraph: {
+    title: "Contato do MEI Calculado",
+    description: "Fale com o MEI Calculado para enviar sugestões, correções ou avisos sobre as calculadoras e guias do site.",
+    url: canonicalUrl("/contato"),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function Page() {
   return (
-    <SimplePage title="Contato">
+    <SimplePage title="Contato" path="/contato">
       <p>
         Para falar sobre o projeto, enviar sugestões, apontar correções ou avisar sobre valores que precisam ser revisados, use o e-mail abaixo.
       </p>

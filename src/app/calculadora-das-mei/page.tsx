@@ -7,9 +7,12 @@ import { Container } from "@/components/Container";
 import { FAQ } from "@/components/FAQ";
 import { InternalLinkCard } from "@/components/InternalLinkCard";
 import { ResultCard } from "@/components/ResultCard";
+import { StructuredData, breadcrumbSchema, faqSchema, webApplicationSchema } from "@/components/StructuredData";
 import { ActivityType, MeiType, meiConfig } from "@/data/meiConfig";
+import { seoKeywords } from "@/data/seoKeywords";
 import { calculateDasValue } from "@/lib/meiCalculations";
 import { formatCurrency } from "@/utils/formatters";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 const independenceNotice =
@@ -28,8 +31,22 @@ export default function DasMeiPage() {
 
   return (
     <Container className="py-10">
+      <StructuredData
+        data={[
+          breadcrumbSchema([
+            { path: "/", name: "Início" },
+            { path: "/calculadora-das-mei", name: "Calculadora DAS MEI" }
+          ]),
+          faqSchema(faqs),
+          webApplicationSchema({
+            name: "Calculadora DAS MEI 2026",
+            path: seoKeywords.das.path,
+            description: seoKeywords.das.description
+          })
+        ]}
+      />
       <Breadcrumbs items={[{ label: "Calculadora DAS MEI" }]} />
-      <h1 className="text-3xl font-black text-slate-950">Calculadora DAS MEI</h1>
+      <h1 className="text-3xl font-black text-slate-950">Calculadora DAS MEI 2026</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
         Veja uma estimativa mensal do DAS conforme o tipo de MEI e a atividade informada. A consulta acontece apenas no navegador.
       </p>
@@ -67,13 +84,31 @@ export default function DasMeiPage() {
         <p>
           O DAS é a guia mensal do MEI. A composição pode envolver contribuição ao INSS e tributos como ICMS ou ISS, conforme a atividade exercida.
         </p>
+        <h2>Diferença entre comércio, serviços e atividade mista</h2>
+        <p>
+          MEI de comércio ou indústria costuma ter composição diferente de MEI de serviços. Quem exerce comércio e serviços no mesmo CNPJ pode ter uma
+          estimativa mista. Por isso a calculadora separa DAS MEI comércio, DAS MEI serviços e comércio + serviços.
+        </p>
+        <h2>Por que o valor DAS MEI muda</h2>
+        <p>
+          O valor mensal pode mudar por ano, salário mínimo, atividade e regras vigentes. Confira também o guia{" "}
+          <Link href="/guias/quanto-o-mei-paga-por-mes" className="font-bold text-blue-700 underline">
+            quanto o MEI paga por mês
+          </Link>{" "}
+          para entender a contribuição mensal MEI em linguagem simples.
+        </p>
         <h2>Como usar a estimativa</h2>
         <p>
           Use o valor como referência de organização financeira. Antes de pagar, atrasar ou regularizar guias, confira a informação no canal oficial
-          de emissão do DAS ou com orientação profissional.
+          de emissão do DAS ou com orientação profissional. Se quiser entender o termo, leia{" "}
+          <Link href="/guias/o-que-e-das-mei" className="font-bold text-blue-700 underline">
+            o que é DAS MEI
+          </Link>
+          .
         </p>
       </article>
       <div className="mt-8">
+        <h2 className="mb-5 text-2xl font-black text-slate-950">Perguntas frequentes sobre DAS MEI</h2>
         <FAQ items={faqs} />
       </div>
       <section className="mt-10 grid gap-4 md:grid-cols-3">

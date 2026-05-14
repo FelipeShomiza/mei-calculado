@@ -5,6 +5,26 @@ import { CalculatorCard } from "@/components/CalculatorCard";
 import { Container } from "@/components/Container";
 import { FAQ } from "@/components/FAQ";
 import { InternalLinkCard } from "@/components/InternalLinkCard";
+import { StructuredData, faqSchema, websiteSchema } from "@/components/StructuredData";
+import { canonicalUrl, defaultOpenGraphImage, seoKeywords } from "@/data/seoKeywords";
+import { Metadata } from "next";
+
+const seo = seoKeywords.home;
+
+export const metadata: Metadata = {
+  title: seo.title,
+  description: seo.description,
+  keywords: [seo.primaryKeyword, ...seo.secondaryKeywords],
+  alternates: {
+    canonical: canonicalUrl(seo.path)
+  },
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    url: canonicalUrl(seo.path),
+    images: [defaultOpenGraphImage]
+  }
+};
 
 const independenceNotice =
   "O MEI Calculado é um site independente e não possui vínculo com o Governo Federal, Receita Federal, Portal do Empreendedor ou Sebrae.";
@@ -27,12 +47,13 @@ const faqs = [
 export default function Home() {
   return (
     <>
+      <StructuredData data={[websiteSchema(), faqSchema(faqs)]} />
       <section className="border-b border-slate-100 bg-white">
         <Container className="grid gap-8 py-14 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-20">
           <div>
             <p className="text-sm font-black uppercase tracking-wide text-green-700">Site independente para MEI</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-slate-950 sm:text-5xl">
-              Calculadoras gratuitas para MEI
+              Calculadoras para MEI gratuitas e informativas
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
               Calcule limite proporcional, projeção de faturamento, valor estimado do DAS e monte um relatório mensal simples, sem cadastro e sem
@@ -66,10 +87,10 @@ export default function Home() {
         </section>
         <section className="mt-14 grid gap-6 md:grid-cols-2 md:items-start">
           <div>
-            <h2 className="text-2xl font-black text-slate-950">Para que serve o MEI Calculado?</h2>
+            <h2 className="text-2xl font-black text-slate-950">Ferramentas para MEI no dia a dia</h2>
             <p className="mt-3 leading-7 text-slate-600">
-              O objetivo é oferecer ferramentas rápidas, leves e fáceis de entender para quem cuida do próprio MEI e precisa acompanhar números
-              básicos com mais clareza.
+              O objetivo é reunir calculadora MEI, calculadora limite MEI, calculadora DAS MEI e relatório mensal em um site leve para quem cuida do
+              próprio negócio e precisa acompanhar números básicos com mais clareza.
             </p>
           </div>
           <AlertBox type="warning">

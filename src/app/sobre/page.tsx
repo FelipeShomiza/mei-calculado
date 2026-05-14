@@ -1,14 +1,22 @@
 import { SimplePage } from "@/components/SimplePage";
+import { canonicalUrl, defaultOpenGraphImage } from "@/data/seoKeywords";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sobre o MEI Calculado",
-  description: "Conheça o MEI Calculado, um site independente com calculadoras informativas para microempreendedores individuais."
+  description: "Conheça o MEI Calculado, um site independente com calculadoras informativas para microempreendedores individuais.",
+  alternates: { canonical: canonicalUrl("/sobre") },
+  openGraph: {
+    title: "Sobre o MEI Calculado",
+    description: "Conheça o MEI Calculado, um site independente com calculadoras informativas para microempreendedores individuais.",
+    url: canonicalUrl("/sobre"),
+    images: [defaultOpenGraphImage]
+  }
 };
 
 export default function Page() {
   return (
-    <SimplePage title="Sobre o MEI Calculado">
+    <SimplePage title="Sobre o MEI Calculado" path="/sobre">
       <p>
         O MEI Calculado foi criado para ajudar microempreendedores individuais a organizar contas simples do dia a dia: limite de faturamento,
         limite proporcional para quem abriu o CNPJ no meio do ano, estimativa do DAS e resumo mensal de receitas e despesas.

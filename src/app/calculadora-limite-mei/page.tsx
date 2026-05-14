@@ -8,9 +8,12 @@ import { FAQ } from "@/components/FAQ";
 import { InternalLinkCard } from "@/components/InternalLinkCard";
 import { ResultCard } from "@/components/ResultCard";
 import { SourceBox } from "@/components/SourceBox";
+import { StructuredData, breadcrumbSchema, faqSchema, webApplicationSchema } from "@/components/StructuredData";
 import { MeiType, months } from "@/data/meiConfig";
+import { seoKeywords } from "@/data/seoKeywords";
 import { calculateRemainingRevenue, getUsageStatus } from "@/lib/meiCalculations";
 import { formatCurrency, formatPercent, parseCurrencyInput } from "@/utils/formatters";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 const independenceNotice =
@@ -38,8 +41,22 @@ export default function LimiteMeiPage() {
 
   return (
     <Container className="py-10">
+      <StructuredData
+        data={[
+          breadcrumbSchema([
+            { path: "/", name: "Início" },
+            { path: "/calculadora-limite-mei", name: "Calculadora limite MEI" }
+          ]),
+          faqSchema(faqs),
+          webApplicationSchema({
+            name: "Calculadora Limite MEI 2026",
+            path: seoKeywords.limite.path,
+            description: seoKeywords.limite.description
+          })
+        ]}
+      />
       <Breadcrumbs items={[{ label: "Calculadora de limite MEI" }]} />
-      <h1 className="text-3xl font-black text-slate-950">Calculadora de Limite MEI</h1>
+      <h1 className="text-3xl font-black text-slate-950">Calculadora limite MEI 2026</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
         Informe o mês de abertura e o faturamento acumulado para estimar o limite proporcional do ano. Os dados ficam no seu navegador e não são
         enviados para servidor.
@@ -98,6 +115,29 @@ export default function LimiteMeiPage() {
         </section>
       </div>
       <article className="prose-mei mt-12">
+        <h2>Como calcular limite MEI proporcional</h2>
+        <p>
+          Para calcular limite MEI proporcional, conte os meses ativos no ano e multiplique pelo limite mensal da categoria. Quem abriu em janeiro usa
+          12 meses; quem abriu no meio do ano usa menos meses.
+        </p>
+        <h2>Exemplo prático: MEI abriu em janeiro</h2>
+        <p>
+          Se o MEI abriu em janeiro, a estimativa considera 12 meses ativos. Nesse caso, o limite proporcional costuma coincidir com o limite anual da
+          categoria informada na calculadora.
+        </p>
+        <h2>Exemplo prático: MEI abriu em julho</h2>
+        <p>
+          Se o MEI abriu em julho, a conta considera julho, agosto, setembro, outubro, novembro e dezembro. Esse cenário é comum em buscas por{" "}
+          <Link href="/guias/mei-abriu-no-meio-do-ano-quanto-pode-faturar" className="font-bold text-blue-700 underline">
+            MEI abriu no meio do ano quanto pode faturar
+          </Link>
+          .
+        </p>
+        <h2>Exemplo prático: MEI abriu em novembro</h2>
+        <p>
+          Se o MEI abriu em novembro, a estimativa considera apenas novembro e dezembro. Com poucos meses ativos, o limite proporcional fica menor e
+          precisa ser acompanhado com atenção.
+        </p>
         <h2>Como funciona o limite anual</h2>
         <p>O limite do MEI comum costuma ser tratado por ano-calendário. Para quem abriu o MEI em janeiro, considera-se o ano completo.</p>
         <h2>Limite proporcional</h2>
@@ -105,11 +145,18 @@ export default function LimiteMeiPage() {
         <h2>Como usar o resultado</h2>
         <p>
           Use o valor restante como alerta de organização. Se o faturamento real estiver muito perto do limite, confira notas emitidas, recebimentos,
-          vendas sem nota e orientação profissional antes de tomar decisões.
+          vendas sem nota e orientação profissional antes de tomar decisões. Se estiver perto do teto, veja também o guia{" "}
+          <Link href="/guias/mei-estourou-o-limite-o-que-fazer" className="font-bold text-blue-700 underline">
+            MEI estourou o limite: o que fazer
+          </Link>
+          .
         </p>
       </article>
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <FAQ items={faqs} />
+        <section>
+          <h2 className="mb-5 text-2xl font-black text-slate-950">Perguntas frequentes sobre limite MEI</h2>
+          <FAQ items={faqs} />
+        </section>
         <SourceBox />
       </div>
       <section className="mt-10 grid gap-4 md:grid-cols-3">
