@@ -17,9 +17,13 @@ export const metadata: Metadata = {
   applicationName: "MEI Calculado",
   keywords: ["MEI", "calculadora MEI", "limite MEI", "DAS MEI", "faturamento MEI"],
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: ["/favicon.svg"],
-    apple: [{ url: "/favicon.svg", type: "image/svg+xml" }]
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" }
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
   },
   openGraph: {
     title: "MEI Calculado - Calculadoras gratuitas para MEI",
