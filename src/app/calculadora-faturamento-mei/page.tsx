@@ -153,6 +153,7 @@ export default function FaturamentoMeiPage() {
       </section>
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         <InternalLinkCard href="/calculadora-limite-mei" title="Calcular limite exato" text="Confira meses ativos, percentual usado e saldo restante." />
+        <InternalLinkCard href="/calculadora-desenquadramento-mei" title="Risco de desenquadramento" text="Compare a projeção com o limite proporcional." />
         <InternalLinkCard href="/relatorio-mensal-mei" title="Organizar o mês" text="Monte um resumo mensal de receitas e despesas." />
         <InternalLinkCard href="/guias/qual-o-limite-do-mei" title="Entender o limite" text="Veja como funciona o limite anual e proporcional." />
       </section>

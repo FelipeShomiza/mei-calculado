@@ -161,6 +161,7 @@ export default function LimiteMeiPage() {
       </div>
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         <InternalLinkCard href="/calculadora-faturamento-mei" title="Projetar faturamento" text="Veja se a média mensal pode estourar o limite." />
+        <InternalLinkCard href="/calculadora-desenquadramento-mei" title="Simular desenquadramento" text="Compare faturamento projetado com o limite estimado." />
         <InternalLinkCard href="/guias/mei-abriu-no-meio-do-ano-quanto-pode-faturar" title="Abriu no meio do ano?" text="Entenda a regra proporcional com exemplos simples." />
         <InternalLinkCard href="/guias/mei-estourou-o-limite-o-que-fazer" title="Passou do limite?" text="Veja cuidados antes de tomar decisões." />
       </section>

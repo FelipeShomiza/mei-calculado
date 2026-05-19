@@ -81,6 +81,7 @@ export const guides: Record<string, GuidePageProps & { description: string }> = 
     description: "Entenda cuidados importantes quando o faturamento do MEI passa do limite.",
     intro: "Passar do limite pode ter consequências fiscais e de enquadramento. O primeiro passo é organizar os números reais.",
     relatedLinks: [
+      { href: "/calculadora-desenquadramento-mei", label: "a calculadora de desenquadramento MEI" },
       { href: "/calculadora-faturamento-mei", label: "a calculadora de faturamento MEI" },
       { href: "/calculadora-limite-mei", label: "a calculadora limite MEI" }
     ],

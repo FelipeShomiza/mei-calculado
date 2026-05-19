@@ -18,6 +18,17 @@ export type ProjectionResult = {
   allowedMonthlyRevenue: number;
 };
 
+export type DisqualificationRiskResult = {
+  activeMonths: number;
+  proportionalLimit: number;
+  accumulatedRevenue: number;
+  expectedRevenueUntilDecember: number;
+  projectedRevenue: number;
+  difference: number;
+  usagePercentage: number;
+  status: "dentro" | "perto" | "acima";
+};
+
 function getMonthlyLimit(type: MeiType): number {
   return type === "caminhoneiro" ? meiConfig.trucker.monthlyLimit : meiConfig.common.monthlyLimit;
 }
@@ -92,6 +103,31 @@ export function calculateRevenueProjection(
     difference,
     status: projectedRevenue > proportionalLimit ? "acima" : usage >= 90 ? "perto" : "dentro",
     allowedMonthlyRevenue: Math.max(0, proportionalLimit - safeAccumulatedRevenue) / remainingMonthsIncludingCurrent
+  };
+}
+
+export function calculateDisqualificationRisk(
+  type: MeiType,
+  openingMonth: number,
+  accumulatedRevenue: number,
+  expectedRevenueUntilDecember: number
+): DisqualificationRiskResult {
+  const proportionalLimit = calculateMeiLimit(type, openingMonth);
+  const safeAccumulatedRevenue = clampRevenue(accumulatedRevenue);
+  const safeExpectedRevenueUntilDecember = clampRevenue(expectedRevenueUntilDecember);
+  const projectedRevenue = safeAccumulatedRevenue + safeExpectedRevenueUntilDecember;
+  const difference = proportionalLimit - projectedRevenue;
+  const usagePercentage = calculateUsagePercentage(projectedRevenue, proportionalLimit);
+
+  return {
+    activeMonths: getActiveMonths(openingMonth),
+    proportionalLimit,
+    accumulatedRevenue: safeAccumulatedRevenue,
+    expectedRevenueUntilDecember: safeExpectedRevenueUntilDecember,
+    projectedRevenue,
+    difference,
+    usagePercentage,
+    status: projectedRevenue > proportionalLimit ? "acima" : usagePercentage >= 90 ? "perto" : "dentro"
   };
 }
 

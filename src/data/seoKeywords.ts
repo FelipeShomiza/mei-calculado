@@ -48,6 +48,18 @@ export const seoKeywords: Record<string, SeoKeywordEntry> = {
       "calcular faturamento anual MEI"
     ]
   },
+  desenquadramento: {
+    path: "/calculadora-desenquadramento-mei",
+    title: "Calculadora de Desenquadramento MEI | Simule se passou do limite",
+    description: "Simule de forma informativa se o faturamento do MEI pode ultrapassar o limite anual ou proporcional. Ferramenta independente, gratuita e não oficial.",
+    primaryKeyword: "calculadora desenquadramento MEI",
+    secondaryKeywords: [
+      "desenquadramento MEI por faturamento",
+      "MEI passou do limite",
+      "simulador desenquadramento MEI",
+      "risco de desenquadramento MEI"
+    ]
+  },
   das: {
     path: "/calculadora-das-mei",
     title: "Calculadora DAS MEI 2026",

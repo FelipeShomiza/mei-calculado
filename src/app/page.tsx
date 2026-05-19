@@ -61,6 +61,9 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/calculadora-limite-mei">Calcular limite MEI</Button>
+              <Button href="/calculadora-desenquadramento-mei" variant="secondary">
+                Simular desenquadramento
+              </Button>
               <Button href="/calculadora-das-mei" variant="secondary">
                 Ver DAS MEI
               </Button>
@@ -79,9 +82,10 @@ export default function Home() {
       </section>
       <Container>
         <AdPlaceholder />
-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <CalculatorCard href="/calculadora-limite-mei" title="Calculadora de Limite MEI" description="Veja o limite proporcional pelo mês de abertura." />
           <CalculatorCard href="/calculadora-faturamento-mei" title="Calculadora de Faturamento MEI" description="Projete se o faturamento pode passar do limite." />
+          <CalculatorCard href="/calculadora-desenquadramento-mei" title="Calculadora de Desenquadramento MEI" description="Simule risco por faturamento projetado." />
           <CalculatorCard href="/calculadora-das-mei" title="Calculadora DAS MEI" description="Consulte o valor estimado mensal por atividade." />
           <CalculatorCard href="/relatorio-mensal-mei" title="Relatório Mensal MEI" description="Monte um resumo mensal para organizar receitas." />
         </section>
@@ -103,6 +107,7 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             <InternalLinkCard href="/guias/qual-o-limite-do-mei" title="Qual o limite do MEI?" text="Entenda limite anual e proporcional." />
             <InternalLinkCard href="/guias/mei-abriu-no-meio-do-ano-quanto-pode-faturar" title="Abriu no meio do ano?" text="Calcule o limite proporcional." />
+            <InternalLinkCard href="/calculadora-desenquadramento-mei" title="Risco de desenquadramento" text="Simule se a projeção pode passar do limite." />
             <InternalLinkCard href="/guias/mei-estourou-o-limite-o-que-fazer" title="Passou do limite?" text="Veja cuidados antes de decidir." />
             <InternalLinkCard href="/guias/mei-precisa-emitir-nota-fiscal" title="Nota fiscal" text="Entenda cuidados comuns sobre emissão." />
             <InternalLinkCard href="/guias/mei-pode-vender-online" title="Venda online" text="Organize o faturamento de vendas pela internet." />
